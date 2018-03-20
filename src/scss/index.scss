@@ -1,0 +1,164 @@
+$table_mwidth:1560px;
+
+.page_title{
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+	background-color: #EEE;
+	padding-left: 30px;
+	margin-bottom:20px;
+
+	&:before{
+		content:'';
+		position: absolute;
+		left: 0;
+		width: 3px;
+		height: 30px;
+		background-color: lightseagreen;
+		top: 10px;
+	}
+}
+
+.t_form{
+	margin-bottom:20px;
+}
+.table_title_box{
+	max-width: $table_mwidth;
+
+
+	table{
+		width: 100%;
+	}
+	table,tr,td,th{
+		border:1px solid rgb(216,216,216);
+		border-collapse: collapse;
+		border-bottom: none;
+		background-color: #f2f2f2;
+	}
+	tr,td,th{
+		height: 30px;
+		line-height: 30px;
+	}
+
+	th,td{
+		padding:0 8px;
+	}
+
+
+}
+
+.index_table_container{
+	min-height:500px !important;
+}
+.table_box{
+	max-width: $table_mwidth;
+	min-height:470px;
+	
+	table{
+		width: 100%;
+	}
+	
+	table,tr,td,th{
+		border:1px solid rgb(216,216,216);
+		border-collapse: collapse;
+	}
+	tr,td,th{
+		height: 30px;
+		line-height: 30px;
+	}
+
+	th,td{
+		padding:0 8px;
+	}
+
+	tr:hover{
+		background-color: #f2f2f2;	
+	}
+}
+
+.td_a{
+	color:lightseagreen;
+	margin:0 3px;
+
+	&:hover{
+		text-decoration:underline;
+	}
+}
+.average_tr{
+	background-color: lightyellow;
+}
+
+.input{
+	width: 220px;
+	height: 30px;
+	border-radius: 3px;
+	border:1px solid rgb(206,206,206);
+	padding:0 8px;
+}
+
+.form_group{
+	height: 40px;
+	margin:10px 0;
+	position: relative;
+	padding-left: 110px;
+
+	label{
+		position: absolute;
+		width: 100px;
+		left: 15px;
+		top: 3px;
+		height: 30px;
+		line-height: 30px;
+		letter-spacing: 3px;
+	}
+
+	.label_content{
+		height: 100%;
+	}
+
+	.label_content_btns{
+		height: 26px;
+		line-height: 26px;
+		display: inline-block;
+		padding:0 8px;
+		background-color: #EEE;
+		margin-right:10px;
+	}
+
+	.label_content_btns.on{
+		background-color: lightseagreen;
+		color:snow;
+	}
+}
+
+.center{
+	text-align: center;
+}
+
+.table_page_box{
+	/*margin-top: 10px;*/
+}
+td a:hover{
+	color:lightseagreen !important;
+}
+
+.p-r{
+	position: relative;
+}
+
+.button{
+	line-height: 21px;
+	padding:4px 10px;
+	background-color: white;
+	border:1px solid lightseagreen;
+	border-radius: 3px;
+	background-color: lightseagreen;
+	color: snow;
+
+	&:active{
+		background-color:rgb(15, 160, 156);
+	}
+}
+.ml20{
+	margin-left: 20px;
+}
