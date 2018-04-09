@@ -11,7 +11,7 @@
     <div class="max_box">
         <h2 class="page_title">价格分析 - <%= time %></h2>
         
-
+        <a class="back_btn" href="javascript:window.history.go(-1);">返回</a>
         
         <form class="layui-form layui-row layui-col-space10 t_form" id="index_form">
 
@@ -27,7 +27,26 @@
             <div class="form_group">
                <label>航班：</label>  
                <div class="label_content">
-                  <input type="text"  id="title" value="" class="input" tabindex="2">
+                  <input list="flight" class="input" autocomplete="off" id="title"  tabindex="2" >
+                  <datalist id="flight">
+                    <option value="4O">
+                    <option value="9W">
+                    <option value="AI">
+                    <option value="BA">
+                    <option value="BE">
+                    <option value="DY">
+                    <option value="IB">
+                    <option value="LJ">
+                    <option value="PG">
+                    <option value="SL">
+                    <option value="TG">
+                    <option value="TU">
+                    <option value="TW">
+                    <option value="UA">
+                    <option value="VX">
+                    <option value="WE">
+                  </datalist>
+
                </div>
             </div>
 

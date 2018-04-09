@@ -19,6 +19,43 @@ $table_mwidth:1560px;
 	}
 }
 
+.btn_group{
+	position: absolute;
+	right: 50px;
+	top:100px;
+	width: 100px;
+	display:flex;
+	display:-webkit-flex;
+	border:1px solid rgba(206,206,206,.4);
+	z-index: 2;
+	border-radius: 3px;
+	overflow: hidden;
+
+	a{
+		width: 50px;
+		height: 30px;
+		padding:0 10px;
+		background-color:#f2f2f2;
+		cursor: pointer;
+
+		i{
+			display:block;
+			line-height:30px;
+			height:30px;
+			text-align:center;
+			font-size:20px;
+		}
+	}
+
+	a.on{
+		background-color:snow;
+
+		i{
+			color:lightseagreen;
+		}
+	}
+}
+
 .t_form{
 	margin-bottom:20px;
 }
@@ -119,8 +156,7 @@ $table_mwidth:1560px;
 	.label_content_btns{
 		height: 26px;
 		line-height: 26px;
-		display: inline-block;
-		padding:0 8px;
+		padding:4px 8px;
 		background-color: #EEE;
 		margin-right:10px;
 	}
@@ -161,4 +197,22 @@ td a:hover{
 }
 .ml20{
 	margin-left: 20px;
+}
+.chart_box{
+	height:450px;
+}
+.mt80{
+	margin-top: 80px;
+}
+
+.back_btn{
+	float: right;
+	margin:10px 50px 20px 0;
+	height:30px;
+	width:80px;
+	text-align:center;
+	border:1px solid lightseagreen;
+	border-radius:3px;
+	line-height:28px;
+	z-index: 555;
 }

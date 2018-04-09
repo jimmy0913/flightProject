@@ -15,7 +15,9 @@ app.set('view cache', false);
 app.use(express.static('src'));
 
 
-http.createServer(app).listen(app.get('port'), function () {});
+http.createServer(app).listen(app.get('port'), function () {
+	console.log('running server');
+});
 
 
 

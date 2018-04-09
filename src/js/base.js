@@ -483,6 +483,25 @@ Date.prototype.Format = function (fmt) {
     return fmt;
 }
  
+
+Date.prototype.addDay = function(days){  
+     if(days<1)
+          return this;
+     var cd = this.getDate();  
+     cd += parseInt(days);  
+     this.setDate(cd);  
+     return this;  
+}
+
+Date.prototype.lessDay = function(days){  
+    if(days<1)
+    return this;
+    var cd = this.getDate();  
+    cd -= parseInt(days);  
+    this.setDate(cd);  
+    return this;  
+} 
+
 //两种调用方式
 // var template1="我是{0}，今年{1}了";
 // var template2="我是{name}，今年{age}了";

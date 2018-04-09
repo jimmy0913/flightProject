@@ -1,7 +1,7 @@
 define([
 	'jQuery',
 	'Base',
-	'layui',
+	// 'layui',
 	
 	'./flight/index',
 	'./flight/price',

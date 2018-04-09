@@ -10,91 +10,137 @@
 <body id="IndexPage">
     <div class="max_box">
         <h2 class="page_title">供应商-航司分析</h2>
-        <form class="layui-form layui-row layui-col-space10 t_form" id="index_form">
 
-            <div class="form_group">
-               <label>供应商ID:</label>  
-               <div class="label_content">
-                  <input type="text"  id="supplier_id" value="" class="input" tabindex="1">
-                  <button class="button ml20">搜索</button>
-               </div>
-            </div>
-
-
-            <div class="form_group">
-               <label>航班：</label>  
-               <div class="label_content">
-                  <input type="text"  id="title" value="" class="input" tabindex="2">
-               </div>
-            </div>
-
-            <div class="form_group">
-               <label>汇总：</label>  
-               <div class="label_content" >
-                  <a class="label_content_btns on" href="javascript:void(0);">天</a>
-                  <a class="label_content_btns" href="javascript:void(0);">周</a>
-               </div>
-            </div>
-
-            <div class="form_group">
-               <label>时间范围：</label>  
-               <div class="label_content">
-                  <input type="text" id="date" class="input" tabindex="3">
-               </div>
-            </div>
-
-            <input type="submit" class="hide" value="提交"> 
-
-            
-        </form>
-
-        <div class="table_title_box">
-            <table>
-                <tr>
-                  <th width="90px">编号</th>
-                  <th width="120px">供应商ID</th>
-                  <th width="120px">航班</th>
-                  <th width="200px">时间</th>
-                  <th width="120px">查询量</th>
-                  <th width="120px">成交量</th>
-                  <th width="120px">转化率</th>
-                  <th width="120px">利润(元)</th>
-                  <th width="120px">利润率</th>
-                  <th>操作</th>
-                </tr>
-            </table>
-        </div>
-        <div class="table_box index_table_container">
-            <table id="index_table">
-                <tr><td colspan="10" class="center">努力加载中...</td></tr>
-            </table>
-            
+        <div class="btn_group">
+              <a href="javascript:;" class="on" title="切换到表格">
+                <i class="icon iconfont icon-biaoge"></i>
+              </a>
+              <a href="javascript:;" title="切换到图表">
+                <i class="icon iconfont icon-tubiao_zhexiantu"></i>
+              </a>
         </div>
 
-        <div class="table_page_box">
-                  <div id="layui-table-page1">
-                      <form>
+        <div class="form_container">
+          <form class="form0 layui-form layui-row layui-col-space10 t_form" id="index_form">
 
-                          <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1">
-                            
-                            <span class="layui-laypage-skip">当前第<em id="cur_page"></em> / <em id="total_page"></em> 页</span>
-
-                            <a href="javascript:;" id="prev"><i title="上一页" class="layui-icon"></i></a>
-                            <a href="javascript:;" id="next"><i title="下一页" class="layui-icon"></i></a>
-                            
-                            <span class="layui-laypage-skip">跳到第
-                              <input type="number" min="1" value="1" class="layui-input" id="yourPage">页
-                              <input type="submit" value="提交" id="goPage">
-                            </span>
-                            <span class="layui-laypage-count">共 <em id="total_count"></em> 条</span>
-                            <!-- <span class="layui-laypage-count">共 <em id="total_page"></em> 页</span> -->
-                          </div>
+              <div class="form_group">
+                 <label>供应商ID:</label>  
+                 <div class="label_content">
+                    <input type="text"  id="supplier_id" value="" class="input" tabindex="1">
+                 </div>
+              </div>
 
 
+              <div class="form_group">
+                 <label>航班：</label>  
+                 <div class="label_content">
+                    <input list="flight" class="input" autocomplete="off" id="title"  tabindex="2" >
+                    <datalist id="flight">
+                      <option value="4O">
+                      <option value="9W">
+                      <option value="AI">
+                      <option value="BA">
+                      <option value="BE">
+                      <option value="DY">
+                      <option value="IB">
+                      <option value="LJ">
+                      <option value="PG">
+                      <option value="SL">
+                      <option value="TG">
+                      <option value="TU">
+                      <option value="TW">
+                      <option value="UA">
+                      <option value="VX">
+                      <option value="WE">
+                    </datalist>
+                 </div>
+              </div>
 
-                      </form>
-                  </div>
+              <div class="form_group">
+                 <label>汇总：</label>  
+                 <div class="label_content label_date_content" >
+                    <a class="label_content_btns on" href="javascript:void(0);">天</a>
+                    <a class="label_content_btns" href="javascript:void(0);">周</a>
+                 </div>
+              </div>
+
+              <div class="form_group">
+                 <label>时间范围：</label>  
+                 <div class="label_content">
+                    <input type="text" id="date" class="input" tabindex="3">
+                    <button class="button ml20">搜索</button>
+                 </div>
+              </div>
+
+              <input type="submit" class="hide" value="提交"> 
+
+              
+          </form>
+        </div>
+
+        
+
+        <div class="data_table_box">
+          <div class="table_title_box">
+              <table>
+                  <tr>
+                    <th width="90px">编号</th>
+                    <th width="120px">供应商ID</th>
+                    <th width="120px">航班</th>
+                    <th width="200px">时间</th>
+                    <th width="120px">查询量</th>
+                    <th width="120px">成交量</th>
+                    <th width="120px">转化率</th>
+                    <th width="120px">利润(元)</th>
+                    <th width="120px">利润率</th>
+                    <th>操作</th>
+                  </tr>
+              </table>
+          </div>
+          <div class="table_box index_table_container">
+              <table id="index_table">
+                  <tr><td colspan="10" class="center">努力加载中...</td></tr>
+              </table>
+              
+          </div>
+
+          <div class="table_page_box">
+                    <div id="layui-table-page1">
+                        <form>
+
+                            <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1">
+                              
+                              <span class="layui-laypage-skip">当前第<em id="cur_page"></em> / <em id="total_page"></em> 页</span>
+
+                              <a href="javascript:;" id="prev"><i title="上一页" class="layui-icon"></i></a>
+                              <a href="javascript:;" id="next"><i title="下一页" class="layui-icon"></i></a>
+                              
+                              <span class="layui-laypage-skip">跳到第
+                                <input type="number" min="1" value="1" class="layui-input" id="yourPage">页
+                                <input type="submit" value="提交" id="goPage">
+                              </span>
+                              <span class="layui-laypage-count">共 <em id="total_count"></em> 条</span>
+                              <!-- <span class="layui-laypage-count">共 <em id="total_page"></em> 页</span> -->
+                            </div>
+
+
+
+                        </form>
+                    </div>
+              </div>
+        </div>
+
+        <div class="data_chart_box hide">
+            
+            <div class="chart_box chart1 mt80" id="chart1">
+                      
             </div>
+
+            <div class="chart_box chart1 mt80" id="chart2">
+                      
+            </div>
+      
+        </div>
 
     </div>
     <script src="https://cdn.bootcss.com/require.js/2.3.4/require.min.js" data-main="/js/main.js"></script>

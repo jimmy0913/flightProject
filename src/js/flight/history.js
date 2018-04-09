@@ -1,4 +1,4 @@
-define(['jQuery', 'Base', 'layui', 'lay'], function($, base, layui, lay) {
+define(['jQuery', 'Base'], function($, base) {
 
     if ($("#HistoryPage").size() < 1)
         return;
@@ -41,7 +41,7 @@ define(['jQuery', 'Base', 'layui', 'lay'], function($, base, layui, lay) {
 
                 
                 $.each(ret.result.list,function(i,d){
-                    ohtml += `<tr><td width="90px" id='code'>${(i+1)+ limit*(current_page-1)}</td><td width="130px">${d.airline}</td><td width="130px">${d.time}</td><td width="130px">${d.query_count}</td><td width="130px">${d.book_count}</td><td width="130px">${d.convert_rate}</td><td width="130px">${d.profit}</td><td width="130px">${d.profit_rate + '%'}</td><td>${d.current_markup}</td></tr>`;
+                    ohtml += `<tr><td width="90px" >${(i+1)+ limit*(current_page-1)}</td><td width="130px">${d.airline}</td><td width="130px">${d.time}</td><td width="130px">${d.query_count}</td><td width="130px">${d.book_count}</td><td width="130px">${d.convert_rate}</td><td width="130px">${d.profit}</td><td width="130px">${d.profit_rate + '%'}</td><td>${d.current_markup}</td></tr>`;
                 })
 
             }else{

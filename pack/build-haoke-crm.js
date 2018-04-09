@@ -2,23 +2,18 @@
 	urlArgs: "bust=2018-02-09",
 	// baseUrl:'/libs',
 	paths: {
-		'jQuery': 'http://p1b4fm7e0.bkt.clouddn.com/jquery.min',
+		'jQuery': './../src/libs/jquery/dist/jquery-1.11.3.min',
 		'Base': './../src/js/base',
-		'layui':'./../src/libs/layui-src/dist/layui.all',
-		'lay':'./../src/libs/layui-src/dist/layui',
-		'dateRange':'./../src/libs/pickerDateRange/dateRange',
+		'Highcharts': './../src/libs/hcharts/highcharts',
+		'dateRange':  './../src/libs/pickerDateRange/dateRange',
 	},
 	shim: {
 		'jQuery': {
 			exports: '$'
 		},
-		'layui':{
-			exports:'layui',
+		'Highcharts':{
+			exports:'Highcharts'
 		},
-		'lay':{
-			exports:'lay',
-		}
-		
 	},
 	deps: [
 		'./../src/js/bootstrap'
