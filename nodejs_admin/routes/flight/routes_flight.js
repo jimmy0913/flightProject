@@ -5,11 +5,15 @@ var http = httprequest.http();
 
 
 exports.index = function(req, res) {
-    res.render("index");
+    res.render("index",{
+        nav:'index',
+    });
 }
 
-exports.getDataBySupplierAndAirline = function (req, res) {
-    getDataBySupplierAndAirline(req, res, function (ret) {
+
+
+exports.getData = function (req, res) {
+    getDataFn(req, res, function (ret) {
         responseJSON(res, ret);
     });
 };
@@ -20,6 +24,7 @@ exports.price = function(req,res){
 
     res.render("price",{
         time:json,
+        nav:'index',
     });
 }
 
@@ -31,6 +36,7 @@ exports.airline = function(req,res){
 
     res.render("airline",{
         time:json,
+        nav:'index',
     });
 }
 
@@ -41,6 +47,7 @@ exports.history = function(req,res){
 
     res.render("history",{
         history:json,
+        nav:'index',
     });
 }
 
@@ -51,6 +58,15 @@ exports.line = function(req,res){
 
     res.render("line",{
         markup:json,
+        nav:'index',
+    });
+}
+
+
+
+exports.kpi = function(req, res) {
+    res.render("kpi",{
+        nav:'kpi',
     });
 }
 
@@ -67,7 +83,7 @@ var responseJSON = function(res, json) {
  
 
 //首页
-var getDataBySupplierAndAirline = function(req, res, func) {
+var getDataFn = function(req, res, func) {
     request.commit(http, request.setHeader("GET", '/admin' + req.url), function(resdata) {
        func(resdata);
     });

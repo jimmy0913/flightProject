@@ -3,28 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>某航线的历史加价分析</title>
-    <link rel="stylesheet" href="./../../css/all.css">
+    <title>某价格的航线分析</title>
+    <link rel="stylesheet" href="/src/css/all.css">
 </head>
 
-<body id="HistoryPage">
+<body id="LinePage">
     <div class="max_box">
-        <h2 class="page_title">某航线的历史加价分析 - <%= history %></h2>
+
+
+
+        <%- include('tpl/nav'); %>
+        <div class="empty_box"></div>
         
-        <a class="back_btn" href="javascript:window.history.go(-1);">返回</a>
+        <h2 class="page_title">某价格的航线分析 - <%= markup %></h2>
+        
+        
+        <div class="clear">
+            <a class="back_btn" href="javascript:window.history.go(-1);">返回</a>
+        </div>
 
         <div class="table_title_box">
             <table>
                 <tr>
                   <th width="90px">编号</th>
-                  <th width="130px">航线</th>
-                  <th width="130px">时间</th>
-                  <th width="130px">查询量</th>
-                  <th width="130px">成交量</th>
-                  <th width="130px">转化率</th>
-                  <th width="130px">利润（元）</th>
-                  <th width="130px">利润率</th>
-                  <th>MARK_UP</th>
+                  <th>航线</th>
+                  <th width="120px">时间</th>
+                  <th width="120px">查询量</th>
+                  <th width="120px">成交量</th>
+                  <th width="120px">转化率</th>
+                  <th width="120px">利润（欧元）</th>
+                  <th width="120px">利润率</th>
+                  <th width="150px">MARK_UP</th>
                 </tr>
             </table>
         </div>
@@ -32,7 +41,7 @@
 
         <div class="table_box">
             <table id="index_table">
-                <tr><td colspan="9" class="center">努力加载中...</td></tr>
+                <tr><td colspan="8" class="center">努力加载中...</td></tr>
             </table>
             
         </div>
@@ -65,8 +74,8 @@
 
     </div>
 
-    <input type="hidden" id="object_id" value="<%= history %>">
-    <script src="https://cdn.bootcss.com/require.js/2.3.4/require.min.js" data-main="/js/main.js"></script>
+    <input type="hidden" id="markup" value="<%= markup %>">
+    <script src="https://cdn.bootcss.com/require.js/2.3.4/require.min.js" data-main="/src/js/main.js"></script>
 </body>
 
 </html>

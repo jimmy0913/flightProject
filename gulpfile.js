@@ -16,7 +16,7 @@ gulp.task('watch',function(){
 	gulp.watch('./src/scss/**/*.scss',function(event){
 		gulp.run('scss');
 	})
-	gulp.watch(['./src/*.ejs','./src/css/**/*.css','./src/js/**/*.js'],function(event){
+	gulp.watch(['./src/views/**/*.ejs','./src/css/**/*.css','./src/js/**/*.js'],function(event){
 		livereload.changed(event.path);
 	})
 })

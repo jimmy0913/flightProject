@@ -1,15 +1,13 @@
 define([
 	'jQuery',
 	'Base',
-	// 'layui',
-	
 	'./flight/index',
 	'./flight/price',
 	'./flight/airline',
 	'./flight/history',
 	'./flight/line',
-	
-	
+	'./flight/kpi'
+
 	], function ($) {
 
 		

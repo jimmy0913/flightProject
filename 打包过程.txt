@@ -1,0 +1,23 @@
+﻿修改main.js 版本号
+
+关闭server,   关闭gulp
+
+gulp pack
+
+node r.js -o build-flight.js
+
+app-admin -> app-admin-old
+app-admin-min->app-admin
+
+
+6. 同步齐牛
+
+
+修改 window.html
+index.ejs
+coupon.ejs
+reward.ejs
+paydeposit.ejs
+
+business
+proxy

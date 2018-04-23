@@ -4,11 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>供应商-航司分析</title>
-    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="/src/css/all.css">
 </head>
 
 <body id="IndexPage">
     <div class="max_box">
+        
+        <%- include('tpl/nav'); %>
+        <div class="empty_box"></div>
+
         <h2 class="page_title">供应商-航司分析</h2>
 
         <div class="btn_group">
@@ -21,7 +25,7 @@
         </div>
 
         <div class="form_container">
-          <form class="form0 layui-form layui-row layui-col-space10 t_form" id="index_form">
+          <form class="layui-form layui-row layui-col-space10 t_form" id="index_form">
 
               <div class="form_group">
                  <label>供应商ID:</label>  
@@ -64,6 +68,16 @@
                  </div>
               </div>
 
+              <div class="form_group hide" id="form_group_interval">
+                 <label>平均周期：</label>  
+                 <div class="label_content label_interval_content" >
+                    <a data-interval="7" class="label_content_btns on" href="javascript:void(0);">7天</a>
+                    <a data-interval="15" class="label_content_btns" href="javascript:void(0);">15天</a>
+                    <a data-interval="30" class="label_content_btns" href="javascript:void(0);">30天</a>
+                 </div>
+              </div>
+
+
               <div class="form_group">
                  <label>时间范围：</label>  
                  <div class="label_content">
@@ -91,7 +105,7 @@
                     <th width="120px">查询量</th>
                     <th width="120px">成交量</th>
                     <th width="120px">转化率</th>
-                    <th width="120px">利润(元)</th>
+                    <th width="120px">利润（欧元）</th>
                     <th width="120px">利润率</th>
                     <th>操作</th>
                   </tr>
@@ -143,7 +157,7 @@
         </div>
 
     </div>
-    <script src="https://cdn.bootcss.com/require.js/2.3.4/require.min.js" data-main="/js/main.js"></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.4/require.min.js" data-main="/src/js/main.js"></script>
 </body>
 
 </html>

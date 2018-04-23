@@ -1,30 +1,26 @@
 'use strict';
 
-define(['jQuery', 'Base'], function ($, base) {
+define(['jQuery', 'Base', 'dateRange', 'Highcharts'], function ($, base, dateRange, Highcharts) {
 
-    if ($("#PricePage").size() < 1) return;
+    if ($("#KpiPage").size() < 1) return;
 
     var initDom = function initDom() {
 
         initEvent();
     },
         initEvent = function initEvent() {
-
-        $('#supplier_id').val(supplier_id);
-        $('#title').val(airline);
         getData();
-        formFn();
         tablePageFn();
+        formFn();
     },
         getData = function getData() {
 
-        $('#index_table').html('<tr><td colspan="10" class="center">努力加载中...</td></tr>');
+        $('#index_table').html('<tr><td colspan="8" class="center">努力加载中...</td></tr>');
 
-        $.api('get', 'get_markups_by_supplier_and_date', {
+        $.api('get', 'get_order_info', {
             supplier_id: supplier_id,
             airline: airline,
             display_format: display_format,
-            time: time,
             current_page: current_page,
             limit: limit
         }, function (ret) {
@@ -40,11 +36,17 @@ define(['jQuery', 'Base'], function ($, base) {
                 $('#total_count').html(' ' + page_list.total_count + ' ');
                 $('#total_page').html(' ' + total_page + ' ');
 
-                $.each(ret.result.list, function (i, d) {
-                    ohtml += '<tr><td width="90px">' + (i + 1 + limit * (current_page - 1)) + '</td><td width="120px">' + (d.supplier_id || '--') + '</td><td width="120px">' + (d.airline || '--') + '</td><td width="120px">' + d.current_markup + '</td><td width="120px">' + d.query_count + '</td><td width="120px">' + d.book_count + '</td><td width="120px">' + d.convert_rate + '</td><td width="120px">' + d.profit + '</td><td width="120px">' + d.profit_rate + '</td><td>\n                    <a class=\'td_a\' href="/price/time/' + d.current_markup + '?supplier_id=' + (d.supplier_id || '') + '&airline=' + (d.airline || '') + '&display_format=' + display_format + '&time=' + d.time + '">\u67E5\u770B\u822A\u7EBF</a>\n                    </td></tr>';
+                var data_list = ret.result.list;
+
+                $.each(data_list, function (i, d) {
+
+                    var obj_is_qualified = getIsQualifiedFn(d);
+                    var obj_expected_profit_rate = getObjExpectedProfitRateFn(d);
+
+                    ohtml += '<tr><td width=\'90px\'>' + (i + 1 + limit * (current_page - 1)) + '</td><td width=\'200px\'>' + d.time + '</td><td width=\'120px\'>' + d.query_count + '</td><td width=\'120px\'>' + d.order_count + '</td><td width=\'200px\'>' + d.profit + '</td><td width="200px">' + d.profit_rate + '</td><td width="200px">' + obj_expected_profit_rate + '</td><td>' + obj_is_qualified + '</td></tr>';
                 });
             } else {
-                ohtml += '<tr><td colspan="10" class="center">暂无数据</td></tr>';
+                ohtml += '<tr><td colspan="8" class="center">暂无数据</td></tr>';
             }
 
             $('#index_table').html(ohtml);
@@ -85,22 +87,48 @@ define(['jQuery', 'Base'], function ($, base) {
         });
     },
         formFn = function formFn() {
-        $('#index_form').on('submit', function () {
-            supplier_id = $('#supplier_id').val();
-            airline = $('#title').val();
+        $('.label_content_btns').on('click', function () {
+            $(this).addClass('on').siblings().removeClass('on');
+            display_format = display_format_arr[$(this).index()];
+            current_page = 1;
             getData();
-            return false;
         });
     },
-        supplier_id = getParam('supplier_id'),
-        airline = getParam('airline'),
-        display_format = getParam('display_format'),
-        time = getParam('time'),
+        getIsQualifiedFn = function getIsQualifiedFn(obj) {
+
+        var result = '';
+
+        if (display_format == 'day') {
+            result = '--';
+        } else {
+            if (obj.is_qualified) {
+                result = '是';
+            } else {
+                result = '<span class="red">否<span>';
+            }
+        }
+
+        return result;
+    },  
+        getObjExpectedProfitRateFn = function(obj){
+            var result = '';
+            if(display_format == 'day'){
+                result = '--';
+            }else{
+                result = obj.expected_profit_rate;
+            }
+
+            return result;
+    },  
+
+        supplier_id = null,
+        airline = null,
+        display_format_arr = ['day', 'week'],
+        display_format = 'day',
         page_list = '',
         current_page = 1,
         total_page = null,
-        limit = 15,
-        time = $('#time').val();
+        limit = 15;
 
     initDom();
 });

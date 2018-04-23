@@ -5,8 +5,6 @@ require.config({
 		'jQuery': './../libs/jquery/dist/jquery-1.11.3.min',
 		'Base': './../js/base',
 		'Highcharts': './../libs/hcharts/highcharts',
-		// 'layui':'./../libs/layui-src/dist/layui.all',
-		// 'lay':'./../libs/layui-src/dist/layui',
 		'dateRange':'./../libs/pickerDateRange/dateRange',
 	},
 	shim: {
@@ -16,13 +14,6 @@ require.config({
 		'Highcharts':{
 			exports:'Highcharts'
 		},
-		/*'layui':{
-			exports:'layui',
-		},
-		'lay':{
-			exports:'lay',
-		}*/
-		
 	},
 	deps: [
 		'./../js/bootstrap'
